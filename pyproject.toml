@@ -1,0 +1,61 @@
+[project]
+name = "video-subtitle-pipeline"
+version = "0.1.0"
+description = "Local-first video subtitle refinement command-line tool"
+readme = "README.md"
+requires-python = ">=3.12,<3.14"
+license = { file = "LICENSE" }
+authors = [{ name = "Gaopeng16" }]
+keywords = ["subtitle", "srt", "whisper", "video", "caption", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = [
+    "faster-whisper>=1.2.1,<2",
+    "httpx>=0.28.1,<1",
+    "platformdirs>=4.3.8,<5",
+    "pydantic>=2.11.0,<3",
+    "python-dotenv>=1.1.0,<2",
+    "PyYAML>=6.0.2,<7",
+    "rich>=14.0.0,<16",
+    "typer>=0.16.0,<1",
+]
+
+[project.urls]
+Documentation = "https://github.com/student-gps/Video-Subtitle#readme"
+Issues = "https://github.com/student-gps/Video-Subtitle/issues"
+Source = "https://github.com/student-gps/Video-Subtitle"
+
+[project.scripts]
+subtitle-pipeline = "video_subtitle_pipeline.cli:app"
+
+[dependency-groups]
+dev = [
+    "build>=1.2.2,<2",
+    "pytest>=8.4.0,<10",
+    "pytest-cov>=6.2.0,<8",
+    "ruff>=0.12.0,<1",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.0,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

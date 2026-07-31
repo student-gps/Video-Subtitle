@@ -1,0 +1,53 @@
+name: Bug report
+description: Report a reproducible problem without exposing sensitive content.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not include API keys, private video/audio, word-level timings, private subtitle text, or personally identifiable information. Use synthetic or redacted examples only.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the expected and actual behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Minimal reproduction
+      description: Provide the command, sanitized config, and synthetic/redacted input details.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Tool version
+      placeholder: "0.1.0"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS, Python, and installation method
+      placeholder: "Windows 11, Python 3.12, uv"
+    validations:
+      required: true
+  - type: dropdown
+    id: device
+    attributes:
+      label: Transcription device
+      options:
+        - auto
+        - cuda
+        - cpu
+        - not applicable
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Sanitized logs or report excerpt
+      description: Remove all credentials and private text before pasting.

@@ -1,0 +1,24 @@
+transcription:
+  model: small
+  language: zh
+  device: auto
+  compute_type: auto
+  vad_filter: true
+llm:
+  # Set the following values in .env or system environment variables by default.
+  base_url: null
+  base_url_env: OPENAI_BASE_URL
+  api_key_env: OPENAI_API_KEY
+  model: null
+  model_env: OPENAI_MODEL
+  timeout_seconds: 90
+readability:
+  min_duration_seconds: 1.0
+  chinese_chars_per_second: 6.0
+  english_words_per_second: 2.5
+  min_chinese_chars: 5
+  preferred_chinese_chars_min: 10
+  preferred_chinese_chars_max: 26
+segmentation:
+  max_lines: 2
+  pause_threshold_seconds: 0.35
